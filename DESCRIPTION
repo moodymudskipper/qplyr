@@ -16,3 +16,5 @@ Imports:
     tidyr
 Suggests: 
     glue
+URL: https://github.com/moodymudskipper/alligator
+BugReports: https://github.com/moodymudskipper/alligator/issues
