@@ -1,0 +1,47 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+options(tidyverse.quiet = TRUE)
+```
+
+# alligator
+
+Experimental!
+
+Delayed evaluation with tidyverse verbs, a bit like {dbplyr} but for local tables.
+
+## Installation
+
+Install with:
+
+``` r
+remotes::install_github("moodymudskipper/alligator")
+```
+
+## Example
+
+```{r example}
+library(tidyverse)
+library(alligator)
+
+al <-
+  alligator(cars) |>
+  mutate(a = speed * dist, b = speed /dist) |>
+  filter(speed == 17)
+
+# args are stored as quosures and we display their env in comments
+al
+
+# collect to eval
+collect(al)
+```
