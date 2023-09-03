@@ -1,20 +1,21 @@
-Package: alligator
-Title: What the Package Does (One Line, Title Case)
+Package: qplyr
+Title: Delayed evaluation with tidyverse verbs
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+    person("Antoine", "Fabri", , "antoine.fabri@gmail.com", role = c("aut", "cre"))
+Description: Apply tidyverse verbs directly on quosures and eval later.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
 Imports: 
     dplyr,
+    lifecycle,
     rlang,
     styler,
-    tidyr
+    tidyr,
+    utils
 Suggests: 
     glue
-URL: https://github.com/moodymudskipper/alligator
-BugReports: https://github.com/moodymudskipper/alligator/issues
+URL: https://github.com/moodymudskipper/qplyr
+BugReports: https://github.com/moodymudskipper/qplyr/issues

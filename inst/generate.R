@@ -8,34 +8,13 @@ generics <- sub("\\.tbl_lazy$|\\.tbl_sql$", "", methods)
 dbplyr_generics <- sort(intersect(getNamespaceExports("dbplyr"), generics))
 dbplyr_generics
 
-
 dplyr_generics <- sort(intersect(getNamespaceExports("dplyr"), generics))
 dplyr_generics
-
-
-
 
 tidyr_generics <- sort(intersect(getNamespaceExports("tidyr"), generics))
 tidyr_generics
 
-
-
-usethis::use_data(methods, overwrite = TRUE)
-
-
-collapse_formals_transformer <- function(text, envir) {
-  regex <- "[*]$"
-  collapse <- grepl(regex, text)
-  if (!collapse) return(get(text, envir))
-  text <- sub(regex, "", text)
-  browser()
-  code <- deparse(get(text, envir))
-  args <- sub("as.pairlist\(alist\(.data = , ... = \)\)")
-  text <- lapply( deparse)
-  glue_collapse(text, sep = ", ")
-}
-
-
+setdiff(generics, c(dbplyr_generics, dplyr_generics, tidyr_generics))
 
 template_dots <- '
 {
@@ -50,7 +29,7 @@ template_dots <- '
     mc <- as.call(append(as.list(mc), rlang::enquos(...), after = pos))
     mc$... <- NULL
   }
-  structure(mc, class = "alligator")
+  rlang::new_quosure(mc, parent.frame())
 }'
 
 template_no_dots <- '
@@ -61,12 +40,13 @@ template_no_dots <- '
   for (arg in names(mc[-(1:2)])) {
     mc[[arg]] <- do.call(rlang::enquo, list(rlang::sym(arg)))
   }
-  structure(mc, class = "alligator")
+  rlang::new_quosure(mc, parent.frame())
 }'
 library(tidyverse)
 library(glue)
 
-for (generic in setdiff(c(dplyr_generics, tidyr_generics), "collect")) {
+file.remove("R/methods.R")
+for (generic in setdiff(c(dplyr_generics, tidyr_generics, "head", "tail"), c("collect", "show_query"))) {
   fmls <- formals(get(generic))
   obj <- get(generic)
   fml_names <- names(formals(obj))
@@ -82,8 +62,9 @@ for (generic in setdiff(c(dplyr_generics, tidyr_generics), "collect")) {
   )
   body(obj) <- parse(text = body_chr)
   code <- deparse(obj)
-  code[[1]] <- sprintf("%s.alligator <- %s", generic, code[[1]])
-  code <- c("#' @export", code)
+  code[[1]] <- sprintf("%s.quosure <- %s", generic, code[[1]])
+
+  # we need to do register filter .onLoad for some reason, maybe linked to stats::filter
+  if (generic != "filter") code <- c("#' @export", code)
   cat(c(code, "", ""), sep = "\n", file = "R/methods.R", append = TRUE)
 }
-glue(template)

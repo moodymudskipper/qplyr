@@ -1,5 +1,5 @@
 #' @export
-add_count.alligator <- function (x, ..., wt = NULL, sort = FALSE, name = NULL, .drop = deprecated())
+add_count.quosure <- function (x, ..., wt = NULL, sort = FALSE, name = NULL, .drop = deprecated()) 
 {
     mc <- match.call(expand.dots = FALSE)
     mc[[1]] <- quote(add_count)
@@ -9,16 +9,16 @@ add_count.alligator <- function (x, ..., wt = NULL, sort = FALSE, name = NULL, .
     }
     if ("..." %in% names(mc)) {
         pos <- match("...", names(mc))
-        mc <- as.call(append(as.list(mc), rlang::enquos(...),
+        mc <- as.call(append(as.list(mc), rlang::enquos(...), 
             after = pos))
         mc$... <- NULL
     }
-    structure(mc, class = "alligator")
+    rlang::new_quosure(mc, parent.frame())
 }
 
 
 #' @export
-anti_join.alligator <- function (x, y, by = NULL, copy = FALSE, ...)
+anti_join.quosure <- function (x, y, by = NULL, copy = FALSE, ...) 
 {
     mc <- match.call(expand.dots = FALSE)
     mc[[1]] <- quote(anti_join)
@@ -28,16 +28,16 @@ anti_join.alligator <- function (x, y, by = NULL, copy = FALSE, ...)
     }
     if ("..." %in% names(mc)) {
         pos <- match("...", names(mc))
-        mc <- as.call(append(as.list(mc), rlang::enquos(...),
+        mc <- as.call(append(as.list(mc), rlang::enquos(...), 
             after = pos))
         mc$... <- NULL
     }
-    structure(mc, class = "alligator")
+    rlang::new_quosure(mc, parent.frame())
 }
 
 
 #' @export
-arrange.alligator <- function (.data, ..., .by_group = FALSE)
+arrange.quosure <- function (.data, ..., .by_group = FALSE) 
 {
     mc <- match.call(expand.dots = FALSE)
     mc[[1]] <- quote(arrange)
@@ -47,16 +47,16 @@ arrange.alligator <- function (.data, ..., .by_group = FALSE)
     }
     if ("..." %in% names(mc)) {
         pos <- match("...", names(mc))
-        mc <- as.call(append(as.list(mc), rlang::enquos(...),
+        mc <- as.call(append(as.list(mc), rlang::enquos(...), 
             after = pos))
         mc$... <- NULL
     }
-    structure(mc, class = "alligator")
+    rlang::new_quosure(mc, parent.frame())
 }
 
 
 #' @export
-auto_copy.alligator <- function (x, y, copy = FALSE, ...)
+auto_copy.quosure <- function (x, y, copy = FALSE, ...) 
 {
     mc <- match.call(expand.dots = FALSE)
     mc[[1]] <- quote(auto_copy)
@@ -66,16 +66,16 @@ auto_copy.alligator <- function (x, y, copy = FALSE, ...)
     }
     if ("..." %in% names(mc)) {
         pos <- match("...", names(mc))
-        mc <- as.call(append(as.list(mc), rlang::enquos(...),
+        mc <- as.call(append(as.list(mc), rlang::enquos(...), 
             after = pos))
         mc$... <- NULL
     }
-    structure(mc, class = "alligator")
+    rlang::new_quosure(mc, parent.frame())
 }
 
 
 #' @export
-collapse.alligator <- function (x, ...)
+collapse.quosure <- function (x, ...) 
 {
     mc <- match.call(expand.dots = FALSE)
     mc[[1]] <- quote(collapse)
@@ -85,16 +85,16 @@ collapse.alligator <- function (x, ...)
     }
     if ("..." %in% names(mc)) {
         pos <- match("...", names(mc))
-        mc <- as.call(append(as.list(mc), rlang::enquos(...),
+        mc <- as.call(append(as.list(mc), rlang::enquos(...), 
             after = pos))
         mc$... <- NULL
     }
-    structure(mc, class = "alligator")
+    rlang::new_quosure(mc, parent.frame())
 }
 
 
 #' @export
-compute.alligator <- function (x, ...)
+compute.quosure <- function (x, ...) 
 {
     mc <- match.call(expand.dots = FALSE)
     mc[[1]] <- quote(compute)
@@ -104,16 +104,16 @@ compute.alligator <- function (x, ...)
     }
     if ("..." %in% names(mc)) {
         pos <- match("...", names(mc))
-        mc <- as.call(append(as.list(mc), rlang::enquos(...),
+        mc <- as.call(append(as.list(mc), rlang::enquos(...), 
             after = pos))
         mc$... <- NULL
     }
-    structure(mc, class = "alligator")
+    rlang::new_quosure(mc, parent.frame())
 }
 
 
 #' @export
-count.alligator <- function (x, ..., wt = NULL, sort = FALSE, name = NULL)
+count.quosure <- function (x, ..., wt = NULL, sort = FALSE, name = NULL) 
 {
     mc <- match.call(expand.dots = FALSE)
     mc[[1]] <- quote(count)
@@ -123,16 +123,16 @@ count.alligator <- function (x, ..., wt = NULL, sort = FALSE, name = NULL)
     }
     if ("..." %in% names(mc)) {
         pos <- match("...", names(mc))
-        mc <- as.call(append(as.list(mc), rlang::enquos(...),
+        mc <- as.call(append(as.list(mc), rlang::enquos(...), 
             after = pos))
         mc$... <- NULL
     }
-    structure(mc, class = "alligator")
+    rlang::new_quosure(mc, parent.frame())
 }
 
 
 #' @export
-cross_join.alligator <- function (x, y, ..., copy = FALSE, suffix = c(".x", ".y"))
+cross_join.quosure <- function (x, y, ..., copy = FALSE, suffix = c(".x", ".y")) 
 {
     mc <- match.call(expand.dots = FALSE)
     mc[[1]] <- quote(cross_join)
@@ -142,16 +142,16 @@ cross_join.alligator <- function (x, y, ..., copy = FALSE, suffix = c(".x", ".y"
     }
     if ("..." %in% names(mc)) {
         pos <- match("...", names(mc))
-        mc <- as.call(append(as.list(mc), rlang::enquos(...),
+        mc <- as.call(append(as.list(mc), rlang::enquos(...), 
             after = pos))
         mc$... <- NULL
     }
-    structure(mc, class = "alligator")
+    rlang::new_quosure(mc, parent.frame())
 }
 
 
 #' @export
-distinct.alligator <- function (.data, ..., .keep_all = FALSE)
+distinct.quosure <- function (.data, ..., .keep_all = FALSE) 
 {
     mc <- match.call(expand.dots = FALSE)
     mc[[1]] <- quote(distinct)
@@ -161,16 +161,16 @@ distinct.alligator <- function (.data, ..., .keep_all = FALSE)
     }
     if ("..." %in% names(mc)) {
         pos <- match("...", names(mc))
-        mc <- as.call(append(as.list(mc), rlang::enquos(...),
+        mc <- as.call(append(as.list(mc), rlang::enquos(...), 
             after = pos))
         mc$... <- NULL
     }
-    structure(mc, class = "alligator")
+    rlang::new_quosure(mc, parent.frame())
 }
 
 
 #' @export
-do.alligator <- function (.data, ...)
+do.quosure <- function (.data, ...) 
 {
     mc <- match.call(expand.dots = FALSE)
     mc[[1]] <- quote(do)
@@ -180,16 +180,16 @@ do.alligator <- function (.data, ...)
     }
     if ("..." %in% names(mc)) {
         pos <- match("...", names(mc))
-        mc <- as.call(append(as.list(mc), rlang::enquos(...),
+        mc <- as.call(append(as.list(mc), rlang::enquos(...), 
             after = pos))
         mc$... <- NULL
     }
-    structure(mc, class = "alligator")
+    rlang::new_quosure(mc, parent.frame())
 }
 
 
 #' @export
-explain.alligator <- function (x, ...)
+explain.quosure <- function (x, ...) 
 {
     mc <- match.call(expand.dots = FALSE)
     mc[[1]] <- quote(explain)
@@ -199,16 +199,15 @@ explain.alligator <- function (x, ...)
     }
     if ("..." %in% names(mc)) {
         pos <- match("...", names(mc))
-        mc <- as.call(append(as.list(mc), rlang::enquos(...),
+        mc <- as.call(append(as.list(mc), rlang::enquos(...), 
             after = pos))
         mc$... <- NULL
     }
-    structure(mc, class = "alligator")
+    rlang::new_quosure(mc, parent.frame())
 }
 
 
-#' @export
-filter.alligator <- function (.data, ..., .by = NULL, .preserve = FALSE)
+filter.quosure <- function (.data, ..., .by = NULL, .preserve = FALSE) 
 {
     mc <- match.call(expand.dots = FALSE)
     mc[[1]] <- quote(filter)
@@ -218,17 +217,17 @@ filter.alligator <- function (.data, ..., .by = NULL, .preserve = FALSE)
     }
     if ("..." %in% names(mc)) {
         pos <- match("...", names(mc))
-        mc <- as.call(append(as.list(mc), rlang::enquos(...),
+        mc <- as.call(append(as.list(mc), rlang::enquos(...), 
             after = pos))
         mc$... <- NULL
     }
-    structure(mc, class = "alligator")
+    rlang::new_quosure(mc, parent.frame())
 }
 
 
 #' @export
-full_join.alligator <- function (x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"),
-    ..., keep = NULL)
+full_join.quosure <- function (x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), 
+    ..., keep = NULL) 
 {
     mc <- match.call(expand.dots = FALSE)
     mc[[1]] <- quote(full_join)
@@ -238,16 +237,16 @@ full_join.alligator <- function (x, y, by = NULL, copy = FALSE, suffix = c(".x",
     }
     if ("..." %in% names(mc)) {
         pos <- match("...", names(mc))
-        mc <- as.call(append(as.list(mc), rlang::enquos(...),
+        mc <- as.call(append(as.list(mc), rlang::enquos(...), 
             after = pos))
         mc$... <- NULL
     }
-    structure(mc, class = "alligator")
+    rlang::new_quosure(mc, parent.frame())
 }
 
 
 #' @export
-group_by.alligator <- function (.data, ..., .add = FALSE, .drop = group_by_drop_default(.data))
+group_by.quosure <- function (.data, ..., .add = FALSE, .drop = group_by_drop_default(.data)) 
 {
     mc <- match.call(expand.dots = FALSE)
     mc[[1]] <- quote(group_by)
@@ -257,16 +256,16 @@ group_by.alligator <- function (.data, ..., .add = FALSE, .drop = group_by_drop_
     }
     if ("..." %in% names(mc)) {
         pos <- match("...", names(mc))
-        mc <- as.call(append(as.list(mc), rlang::enquos(...),
+        mc <- as.call(append(as.list(mc), rlang::enquos(...), 
             after = pos))
         mc$... <- NULL
     }
-    structure(mc, class = "alligator")
+    rlang::new_quosure(mc, parent.frame())
 }
 
 
 #' @export
-group_by_drop_default.alligator <- function (.tbl)
+group_by_drop_default.quosure <- function (.tbl) 
 {
     mc <- match.call(expand.dots = FALSE)
     mc[[1]] <- quote(group_by_drop_default)
@@ -274,12 +273,12 @@ group_by_drop_default.alligator <- function (.tbl)
     for (arg in names(mc[-(1:2)])) {
         mc[[arg]] <- do.call(rlang::enquo, list(rlang::sym(arg)))
     }
-    structure(mc, class = "alligator")
+    rlang::new_quosure(mc, parent.frame())
 }
 
 
 #' @export
-group_size.alligator <- function (x)
+group_size.quosure <- function (x) 
 {
     mc <- match.call(expand.dots = FALSE)
     mc[[1]] <- quote(group_size)
@@ -287,12 +286,12 @@ group_size.alligator <- function (x)
     for (arg in names(mc[-(1:2)])) {
         mc[[arg]] <- do.call(rlang::enquo, list(rlang::sym(arg)))
     }
-    structure(mc, class = "alligator")
+    rlang::new_quosure(mc, parent.frame())
 }
 
 
 #' @export
-group_vars.alligator <- function (x)
+group_vars.quosure <- function (x) 
 {
     mc <- match.call(expand.dots = FALSE)
     mc[[1]] <- quote(group_vars)
@@ -300,12 +299,12 @@ group_vars.alligator <- function (x)
     for (arg in names(mc[-(1:2)])) {
         mc[[arg]] <- do.call(rlang::enquo, list(rlang::sym(arg)))
     }
-    structure(mc, class = "alligator")
+    rlang::new_quosure(mc, parent.frame())
 }
 
 
 #' @export
-groups.alligator <- function (x)
+groups.quosure <- function (x) 
 {
     mc <- match.call(expand.dots = FALSE)
     mc[[1]] <- quote(groups)
@@ -313,13 +312,13 @@ groups.alligator <- function (x)
     for (arg in names(mc[-(1:2)])) {
         mc[[arg]] <- do.call(rlang::enquo, list(rlang::sym(arg)))
     }
-    structure(mc, class = "alligator")
+    rlang::new_quosure(mc, parent.frame())
 }
 
 
 #' @export
-inner_join.alligator <- function (x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"),
-    ..., keep = NULL)
+inner_join.quosure <- function (x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), 
+    ..., keep = NULL) 
 {
     mc <- match.call(expand.dots = FALSE)
     mc[[1]] <- quote(inner_join)
@@ -329,16 +328,16 @@ inner_join.alligator <- function (x, y, by = NULL, copy = FALSE, suffix = c(".x"
     }
     if ("..." %in% names(mc)) {
         pos <- match("...", names(mc))
-        mc <- as.call(append(as.list(mc), rlang::enquos(...),
+        mc <- as.call(append(as.list(mc), rlang::enquos(...), 
             after = pos))
         mc$... <- NULL
     }
-    structure(mc, class = "alligator")
+    rlang::new_quosure(mc, parent.frame())
 }
 
 
 #' @export
-intersect.alligator <- function (x, y, ...)
+intersect.quosure <- function (x, y, ...) 
 {
     mc <- match.call(expand.dots = FALSE)
     mc[[1]] <- quote(intersect)
@@ -348,17 +347,17 @@ intersect.alligator <- function (x, y, ...)
     }
     if ("..." %in% names(mc)) {
         pos <- match("...", names(mc))
-        mc <- as.call(append(as.list(mc), rlang::enquos(...),
+        mc <- as.call(append(as.list(mc), rlang::enquos(...), 
             after = pos))
         mc$... <- NULL
     }
-    structure(mc, class = "alligator")
+    rlang::new_quosure(mc, parent.frame())
 }
 
 
 #' @export
-left_join.alligator <- function (x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"),
-    ..., keep = NULL)
+left_join.quosure <- function (x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), 
+    ..., keep = NULL) 
 {
     mc <- match.call(expand.dots = FALSE)
     mc[[1]] <- quote(left_join)
@@ -368,16 +367,16 @@ left_join.alligator <- function (x, y, by = NULL, copy = FALSE, suffix = c(".x",
     }
     if ("..." %in% names(mc)) {
         pos <- match("...", names(mc))
-        mc <- as.call(append(as.list(mc), rlang::enquos(...),
+        mc <- as.call(append(as.list(mc), rlang::enquos(...), 
             after = pos))
         mc$... <- NULL
     }
-    structure(mc, class = "alligator")
+    rlang::new_quosure(mc, parent.frame())
 }
 
 
 #' @export
-mutate.alligator <- function (.data, ...)
+mutate.quosure <- function (.data, ...) 
 {
     mc <- match.call(expand.dots = FALSE)
     mc[[1]] <- quote(mutate)
@@ -387,16 +386,16 @@ mutate.alligator <- function (.data, ...)
     }
     if ("..." %in% names(mc)) {
         pos <- match("...", names(mc))
-        mc <- as.call(append(as.list(mc), rlang::enquos(...),
+        mc <- as.call(append(as.list(mc), rlang::enquos(...), 
             after = pos))
         mc$... <- NULL
     }
-    structure(mc, class = "alligator")
+    rlang::new_quosure(mc, parent.frame())
 }
 
 
 #' @export
-n_groups.alligator <- function (x)
+n_groups.quosure <- function (x) 
 {
     mc <- match.call(expand.dots = FALSE)
     mc[[1]] <- quote(n_groups)
@@ -404,12 +403,12 @@ n_groups.alligator <- function (x)
     for (arg in names(mc[-(1:2)])) {
         mc[[arg]] <- do.call(rlang::enquo, list(rlang::sym(arg)))
     }
-    structure(mc, class = "alligator")
+    rlang::new_quosure(mc, parent.frame())
 }
 
 
 #' @export
-pull.alligator <- function (.data, var = -1, name = NULL, ...)
+pull.quosure <- function (.data, var = -1, name = NULL, ...) 
 {
     mc <- match.call(expand.dots = FALSE)
     mc[[1]] <- quote(pull)
@@ -419,16 +418,16 @@ pull.alligator <- function (.data, var = -1, name = NULL, ...)
     }
     if ("..." %in% names(mc)) {
         pos <- match("...", names(mc))
-        mc <- as.call(append(as.list(mc), rlang::enquos(...),
+        mc <- as.call(append(as.list(mc), rlang::enquos(...), 
             after = pos))
         mc$... <- NULL
     }
-    structure(mc, class = "alligator")
+    rlang::new_quosure(mc, parent.frame())
 }
 
 
 #' @export
-relocate.alligator <- function (.data, ..., .before = NULL, .after = NULL)
+relocate.quosure <- function (.data, ..., .before = NULL, .after = NULL) 
 {
     mc <- match.call(expand.dots = FALSE)
     mc[[1]] <- quote(relocate)
@@ -438,16 +437,16 @@ relocate.alligator <- function (.data, ..., .before = NULL, .after = NULL)
     }
     if ("..." %in% names(mc)) {
         pos <- match("...", names(mc))
-        mc <- as.call(append(as.list(mc), rlang::enquos(...),
+        mc <- as.call(append(as.list(mc), rlang::enquos(...), 
             after = pos))
         mc$... <- NULL
     }
-    structure(mc, class = "alligator")
+    rlang::new_quosure(mc, parent.frame())
 }
 
 
 #' @export
-rename.alligator <- function (.data, ...)
+rename.quosure <- function (.data, ...) 
 {
     mc <- match.call(expand.dots = FALSE)
     mc[[1]] <- quote(rename)
@@ -457,16 +456,16 @@ rename.alligator <- function (.data, ...)
     }
     if ("..." %in% names(mc)) {
         pos <- match("...", names(mc))
-        mc <- as.call(append(as.list(mc), rlang::enquos(...),
+        mc <- as.call(append(as.list(mc), rlang::enquos(...), 
             after = pos))
         mc$... <- NULL
     }
-    structure(mc, class = "alligator")
+    rlang::new_quosure(mc, parent.frame())
 }
 
 
 #' @export
-rename_with.alligator <- function (.data, .fn, .cols = everything(), ...)
+rename_with.quosure <- function (.data, .fn, .cols = everything(), ...) 
 {
     mc <- match.call(expand.dots = FALSE)
     mc[[1]] <- quote(rename_with)
@@ -476,17 +475,17 @@ rename_with.alligator <- function (.data, .fn, .cols = everything(), ...)
     }
     if ("..." %in% names(mc)) {
         pos <- match("...", names(mc))
-        mc <- as.call(append(as.list(mc), rlang::enquos(...),
+        mc <- as.call(append(as.list(mc), rlang::enquos(...), 
             after = pos))
         mc$... <- NULL
     }
-    structure(mc, class = "alligator")
+    rlang::new_quosure(mc, parent.frame())
 }
 
 
 #' @export
-right_join.alligator <- function (x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"),
-    ..., keep = NULL)
+right_join.quosure <- function (x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), 
+    ..., keep = NULL) 
 {
     mc <- match.call(expand.dots = FALSE)
     mc[[1]] <- quote(right_join)
@@ -496,16 +495,16 @@ right_join.alligator <- function (x, y, by = NULL, copy = FALSE, suffix = c(".x"
     }
     if ("..." %in% names(mc)) {
         pos <- match("...", names(mc))
-        mc <- as.call(append(as.list(mc), rlang::enquos(...),
+        mc <- as.call(append(as.list(mc), rlang::enquos(...), 
             after = pos))
         mc$... <- NULL
     }
-    structure(mc, class = "alligator")
+    rlang::new_quosure(mc, parent.frame())
 }
 
 
 #' @export
-rows_append.alligator <- function (x, y, ..., copy = FALSE, in_place = FALSE)
+rows_append.quosure <- function (x, y, ..., copy = FALSE, in_place = FALSE) 
 {
     mc <- match.call(expand.dots = FALSE)
     mc[[1]] <- quote(rows_append)
@@ -515,17 +514,17 @@ rows_append.alligator <- function (x, y, ..., copy = FALSE, in_place = FALSE)
     }
     if ("..." %in% names(mc)) {
         pos <- match("...", names(mc))
-        mc <- as.call(append(as.list(mc), rlang::enquos(...),
+        mc <- as.call(append(as.list(mc), rlang::enquos(...), 
             after = pos))
         mc$... <- NULL
     }
-    structure(mc, class = "alligator")
+    rlang::new_quosure(mc, parent.frame())
 }
 
 
 #' @export
-rows_delete.alligator <- function (x, y, by = NULL, ..., unmatched = c("error", "ignore"),
-    copy = FALSE, in_place = FALSE)
+rows_delete.quosure <- function (x, y, by = NULL, ..., unmatched = c("error", "ignore"), 
+    copy = FALSE, in_place = FALSE) 
 {
     mc <- match.call(expand.dots = FALSE)
     mc[[1]] <- quote(rows_delete)
@@ -535,17 +534,17 @@ rows_delete.alligator <- function (x, y, by = NULL, ..., unmatched = c("error", 
     }
     if ("..." %in% names(mc)) {
         pos <- match("...", names(mc))
-        mc <- as.call(append(as.list(mc), rlang::enquos(...),
+        mc <- as.call(append(as.list(mc), rlang::enquos(...), 
             after = pos))
         mc$... <- NULL
     }
-    structure(mc, class = "alligator")
+    rlang::new_quosure(mc, parent.frame())
 }
 
 
 #' @export
-rows_insert.alligator <- function (x, y, by = NULL, ..., conflict = c("error", "ignore"),
-    copy = FALSE, in_place = FALSE)
+rows_insert.quosure <- function (x, y, by = NULL, ..., conflict = c("error", "ignore"), 
+    copy = FALSE, in_place = FALSE) 
 {
     mc <- match.call(expand.dots = FALSE)
     mc[[1]] <- quote(rows_insert)
@@ -555,17 +554,17 @@ rows_insert.alligator <- function (x, y, by = NULL, ..., conflict = c("error", "
     }
     if ("..." %in% names(mc)) {
         pos <- match("...", names(mc))
-        mc <- as.call(append(as.list(mc), rlang::enquos(...),
+        mc <- as.call(append(as.list(mc), rlang::enquos(...), 
             after = pos))
         mc$... <- NULL
     }
-    structure(mc, class = "alligator")
+    rlang::new_quosure(mc, parent.frame())
 }
 
 
 #' @export
-rows_patch.alligator <- function (x, y, by = NULL, ..., unmatched = c("error", "ignore"),
-    copy = FALSE, in_place = FALSE)
+rows_patch.quosure <- function (x, y, by = NULL, ..., unmatched = c("error", "ignore"), 
+    copy = FALSE, in_place = FALSE) 
 {
     mc <- match.call(expand.dots = FALSE)
     mc[[1]] <- quote(rows_patch)
@@ -575,17 +574,17 @@ rows_patch.alligator <- function (x, y, by = NULL, ..., unmatched = c("error", "
     }
     if ("..." %in% names(mc)) {
         pos <- match("...", names(mc))
-        mc <- as.call(append(as.list(mc), rlang::enquos(...),
+        mc <- as.call(append(as.list(mc), rlang::enquos(...), 
             after = pos))
         mc$... <- NULL
     }
-    structure(mc, class = "alligator")
+    rlang::new_quosure(mc, parent.frame())
 }
 
 
 #' @export
-rows_update.alligator <- function (x, y, by = NULL, ..., unmatched = c("error", "ignore"),
-    copy = FALSE, in_place = FALSE)
+rows_update.quosure <- function (x, y, by = NULL, ..., unmatched = c("error", "ignore"), 
+    copy = FALSE, in_place = FALSE) 
 {
     mc <- match.call(expand.dots = FALSE)
     mc[[1]] <- quote(rows_update)
@@ -595,16 +594,16 @@ rows_update.alligator <- function (x, y, by = NULL, ..., unmatched = c("error", 
     }
     if ("..." %in% names(mc)) {
         pos <- match("...", names(mc))
-        mc <- as.call(append(as.list(mc), rlang::enquos(...),
+        mc <- as.call(append(as.list(mc), rlang::enquos(...), 
             after = pos))
         mc$... <- NULL
     }
-    structure(mc, class = "alligator")
+    rlang::new_quosure(mc, parent.frame())
 }
 
 
 #' @export
-rows_upsert.alligator <- function (x, y, by = NULL, ..., copy = FALSE, in_place = FALSE)
+rows_upsert.quosure <- function (x, y, by = NULL, ..., copy = FALSE, in_place = FALSE) 
 {
     mc <- match.call(expand.dots = FALSE)
     mc[[1]] <- quote(rows_upsert)
@@ -614,16 +613,16 @@ rows_upsert.alligator <- function (x, y, by = NULL, ..., copy = FALSE, in_place 
     }
     if ("..." %in% names(mc)) {
         pos <- match("...", names(mc))
-        mc <- as.call(append(as.list(mc), rlang::enquos(...),
+        mc <- as.call(append(as.list(mc), rlang::enquos(...), 
             after = pos))
         mc$... <- NULL
     }
-    structure(mc, class = "alligator")
+    rlang::new_quosure(mc, parent.frame())
 }
 
 
 #' @export
-same_src.alligator <- function (x, y)
+same_src.quosure <- function (x, y) 
 {
     mc <- match.call(expand.dots = FALSE)
     mc[[1]] <- quote(same_src)
@@ -631,12 +630,12 @@ same_src.alligator <- function (x, y)
     for (arg in names(mc[-(1:2)])) {
         mc[[arg]] <- do.call(rlang::enquo, list(rlang::sym(arg)))
     }
-    structure(mc, class = "alligator")
+    rlang::new_quosure(mc, parent.frame())
 }
 
 
 #' @export
-select.alligator <- function (.data, ...)
+select.quosure <- function (.data, ...) 
 {
     mc <- match.call(expand.dots = FALSE)
     mc[[1]] <- quote(select)
@@ -646,16 +645,16 @@ select.alligator <- function (.data, ...)
     }
     if ("..." %in% names(mc)) {
         pos <- match("...", names(mc))
-        mc <- as.call(append(as.list(mc), rlang::enquos(...),
+        mc <- as.call(append(as.list(mc), rlang::enquos(...), 
             after = pos))
         mc$... <- NULL
     }
-    structure(mc, class = "alligator")
+    rlang::new_quosure(mc, parent.frame())
 }
 
 
 #' @export
-semi_join.alligator <- function (x, y, by = NULL, copy = FALSE, ...)
+semi_join.quosure <- function (x, y, by = NULL, copy = FALSE, ...) 
 {
     mc <- match.call(expand.dots = FALSE)
     mc[[1]] <- quote(semi_join)
@@ -665,16 +664,16 @@ semi_join.alligator <- function (x, y, by = NULL, copy = FALSE, ...)
     }
     if ("..." %in% names(mc)) {
         pos <- match("...", names(mc))
-        mc <- as.call(append(as.list(mc), rlang::enquos(...),
+        mc <- as.call(append(as.list(mc), rlang::enquos(...), 
             after = pos))
         mc$... <- NULL
     }
-    structure(mc, class = "alligator")
+    rlang::new_quosure(mc, parent.frame())
 }
 
 
 #' @export
-setdiff.alligator <- function (x, y, ...)
+setdiff.quosure <- function (x, y, ...) 
 {
     mc <- match.call(expand.dots = FALSE)
     mc[[1]] <- quote(setdiff)
@@ -684,35 +683,16 @@ setdiff.alligator <- function (x, y, ...)
     }
     if ("..." %in% names(mc)) {
         pos <- match("...", names(mc))
-        mc <- as.call(append(as.list(mc), rlang::enquos(...),
+        mc <- as.call(append(as.list(mc), rlang::enquos(...), 
             after = pos))
         mc$... <- NULL
     }
-    structure(mc, class = "alligator")
+    rlang::new_quosure(mc, parent.frame())
 }
 
 
 #' @export
-show_query.alligator <- function (x, ...)
-{
-    mc <- match.call(expand.dots = FALSE)
-    mc[[1]] <- quote(show_query)
-    mc[[2]] <- x
-    for (arg in setdiff(names(mc[-(1:2)]), "...")) {
-        mc[[arg]] <- do.call(rlang::enquo, list(rlang::sym(arg)))
-    }
-    if ("..." %in% names(mc)) {
-        pos <- match("...", names(mc))
-        mc <- as.call(append(as.list(mc), rlang::enquos(...),
-            after = pos))
-        mc$... <- NULL
-    }
-    structure(mc, class = "alligator")
-}
-
-
-#' @export
-slice.alligator <- function (.data, ..., .by = NULL, .preserve = FALSE)
+slice.quosure <- function (.data, ..., .by = NULL, .preserve = FALSE) 
 {
     mc <- match.call(expand.dots = FALSE)
     mc[[1]] <- quote(slice)
@@ -722,16 +702,16 @@ slice.alligator <- function (.data, ..., .by = NULL, .preserve = FALSE)
     }
     if ("..." %in% names(mc)) {
         pos <- match("...", names(mc))
-        mc <- as.call(append(as.list(mc), rlang::enquos(...),
+        mc <- as.call(append(as.list(mc), rlang::enquos(...), 
             after = pos))
         mc$... <- NULL
     }
-    structure(mc, class = "alligator")
+    rlang::new_quosure(mc, parent.frame())
 }
 
 
 #' @export
-slice_head.alligator <- function (.data, ..., n, prop, by = NULL)
+slice_head.quosure <- function (.data, ..., n, prop, by = NULL) 
 {
     mc <- match.call(expand.dots = FALSE)
     mc[[1]] <- quote(slice_head)
@@ -741,17 +721,17 @@ slice_head.alligator <- function (.data, ..., n, prop, by = NULL)
     }
     if ("..." %in% names(mc)) {
         pos <- match("...", names(mc))
-        mc <- as.call(append(as.list(mc), rlang::enquos(...),
+        mc <- as.call(append(as.list(mc), rlang::enquos(...), 
             after = pos))
         mc$... <- NULL
     }
-    structure(mc, class = "alligator")
+    rlang::new_quosure(mc, parent.frame())
 }
 
 
 #' @export
-slice_max.alligator <- function (.data, order_by, ..., n, prop, by = NULL, with_ties = TRUE,
-    na_rm = FALSE)
+slice_max.quosure <- function (.data, order_by, ..., n, prop, by = NULL, with_ties = TRUE, 
+    na_rm = FALSE) 
 {
     mc <- match.call(expand.dots = FALSE)
     mc[[1]] <- quote(slice_max)
@@ -761,17 +741,17 @@ slice_max.alligator <- function (.data, order_by, ..., n, prop, by = NULL, with_
     }
     if ("..." %in% names(mc)) {
         pos <- match("...", names(mc))
-        mc <- as.call(append(as.list(mc), rlang::enquos(...),
+        mc <- as.call(append(as.list(mc), rlang::enquos(...), 
             after = pos))
         mc$... <- NULL
     }
-    structure(mc, class = "alligator")
+    rlang::new_quosure(mc, parent.frame())
 }
 
 
 #' @export
-slice_min.alligator <- function (.data, order_by, ..., n, prop, by = NULL, with_ties = TRUE,
-    na_rm = FALSE)
+slice_min.quosure <- function (.data, order_by, ..., n, prop, by = NULL, with_ties = TRUE, 
+    na_rm = FALSE) 
 {
     mc <- match.call(expand.dots = FALSE)
     mc[[1]] <- quote(slice_min)
@@ -781,16 +761,16 @@ slice_min.alligator <- function (.data, order_by, ..., n, prop, by = NULL, with_
     }
     if ("..." %in% names(mc)) {
         pos <- match("...", names(mc))
-        mc <- as.call(append(as.list(mc), rlang::enquos(...),
+        mc <- as.call(append(as.list(mc), rlang::enquos(...), 
             after = pos))
         mc$... <- NULL
     }
-    structure(mc, class = "alligator")
+    rlang::new_quosure(mc, parent.frame())
 }
 
 
 #' @export
-slice_sample.alligator <- function (.data, ..., n, prop, by = NULL, weight_by = NULL, replace = FALSE)
+slice_sample.quosure <- function (.data, ..., n, prop, by = NULL, weight_by = NULL, replace = FALSE) 
 {
     mc <- match.call(expand.dots = FALSE)
     mc[[1]] <- quote(slice_sample)
@@ -800,16 +780,16 @@ slice_sample.alligator <- function (.data, ..., n, prop, by = NULL, weight_by = 
     }
     if ("..." %in% names(mc)) {
         pos <- match("...", names(mc))
-        mc <- as.call(append(as.list(mc), rlang::enquos(...),
+        mc <- as.call(append(as.list(mc), rlang::enquos(...), 
             after = pos))
         mc$... <- NULL
     }
-    structure(mc, class = "alligator")
+    rlang::new_quosure(mc, parent.frame())
 }
 
 
 #' @export
-slice_tail.alligator <- function (.data, ..., n, prop, by = NULL)
+slice_tail.quosure <- function (.data, ..., n, prop, by = NULL) 
 {
     mc <- match.call(expand.dots = FALSE)
     mc[[1]] <- quote(slice_tail)
@@ -819,16 +799,16 @@ slice_tail.alligator <- function (.data, ..., n, prop, by = NULL)
     }
     if ("..." %in% names(mc)) {
         pos <- match("...", names(mc))
-        mc <- as.call(append(as.list(mc), rlang::enquos(...),
+        mc <- as.call(append(as.list(mc), rlang::enquos(...), 
             after = pos))
         mc$... <- NULL
     }
-    structure(mc, class = "alligator")
+    rlang::new_quosure(mc, parent.frame())
 }
 
 
 #' @export
-summarise.alligator <- function (.data, ..., .by = NULL, .groups = NULL)
+summarise.quosure <- function (.data, ..., .by = NULL, .groups = NULL) 
 {
     mc <- match.call(expand.dots = FALSE)
     mc[[1]] <- quote(summarise)
@@ -838,16 +818,16 @@ summarise.alligator <- function (.data, ..., .by = NULL, .groups = NULL)
     }
     if ("..." %in% names(mc)) {
         pos <- match("...", names(mc))
-        mc <- as.call(append(as.list(mc), rlang::enquos(...),
+        mc <- as.call(append(as.list(mc), rlang::enquos(...), 
             after = pos))
         mc$... <- NULL
     }
-    structure(mc, class = "alligator")
+    rlang::new_quosure(mc, parent.frame())
 }
 
 
 #' @export
-tally.alligator <- function (x, wt = NULL, sort = FALSE, name = NULL)
+tally.quosure <- function (x, wt = NULL, sort = FALSE, name = NULL) 
 {
     mc <- match.call(expand.dots = FALSE)
     mc[[1]] <- quote(tally)
@@ -855,12 +835,12 @@ tally.alligator <- function (x, wt = NULL, sort = FALSE, name = NULL)
     for (arg in names(mc[-(1:2)])) {
         mc[[arg]] <- do.call(rlang::enquo, list(rlang::sym(arg)))
     }
-    structure(mc, class = "alligator")
+    rlang::new_quosure(mc, parent.frame())
 }
 
 
 #' @export
-tbl_vars.alligator <- function (x)
+tbl_vars.quosure <- function (x) 
 {
     mc <- match.call(expand.dots = FALSE)
     mc[[1]] <- quote(tbl_vars)
@@ -868,12 +848,12 @@ tbl_vars.alligator <- function (x)
     for (arg in names(mc[-(1:2)])) {
         mc[[arg]] <- do.call(rlang::enquo, list(rlang::sym(arg)))
     }
-    structure(mc, class = "alligator")
+    rlang::new_quosure(mc, parent.frame())
 }
 
 
 #' @export
-transmute.alligator <- function (.data, ...)
+transmute.quosure <- function (.data, ...) 
 {
     mc <- match.call(expand.dots = FALSE)
     mc[[1]] <- quote(transmute)
@@ -883,16 +863,16 @@ transmute.alligator <- function (.data, ...)
     }
     if ("..." %in% names(mc)) {
         pos <- match("...", names(mc))
-        mc <- as.call(append(as.list(mc), rlang::enquos(...),
+        mc <- as.call(append(as.list(mc), rlang::enquos(...), 
             after = pos))
         mc$... <- NULL
     }
-    structure(mc, class = "alligator")
+    rlang::new_quosure(mc, parent.frame())
 }
 
 
 #' @export
-ungroup.alligator <- function (x, ...)
+ungroup.quosure <- function (x, ...) 
 {
     mc <- match.call(expand.dots = FALSE)
     mc[[1]] <- quote(ungroup)
@@ -902,16 +882,16 @@ ungroup.alligator <- function (x, ...)
     }
     if ("..." %in% names(mc)) {
         pos <- match("...", names(mc))
-        mc <- as.call(append(as.list(mc), rlang::enquos(...),
+        mc <- as.call(append(as.list(mc), rlang::enquos(...), 
             after = pos))
         mc$... <- NULL
     }
-    structure(mc, class = "alligator")
+    rlang::new_quosure(mc, parent.frame())
 }
 
 
 #' @export
-union.alligator <- function (x, y, ...)
+union.quosure <- function (x, y, ...) 
 {
     mc <- match.call(expand.dots = FALSE)
     mc[[1]] <- quote(union)
@@ -921,16 +901,16 @@ union.alligator <- function (x, y, ...)
     }
     if ("..." %in% names(mc)) {
         pos <- match("...", names(mc))
-        mc <- as.call(append(as.list(mc), rlang::enquos(...),
+        mc <- as.call(append(as.list(mc), rlang::enquos(...), 
             after = pos))
         mc$... <- NULL
     }
-    structure(mc, class = "alligator")
+    rlang::new_quosure(mc, parent.frame())
 }
 
 
 #' @export
-union_all.alligator <- function (x, y, ...)
+union_all.quosure <- function (x, y, ...) 
 {
     mc <- match.call(expand.dots = FALSE)
     mc[[1]] <- quote(union_all)
@@ -940,16 +920,16 @@ union_all.alligator <- function (x, y, ...)
     }
     if ("..." %in% names(mc)) {
         pos <- match("...", names(mc))
-        mc <- as.call(append(as.list(mc), rlang::enquos(...),
+        mc <- as.call(append(as.list(mc), rlang::enquos(...), 
             after = pos))
         mc$... <- NULL
     }
-    structure(mc, class = "alligator")
+    rlang::new_quosure(mc, parent.frame())
 }
 
 
 #' @export
-complete.alligator <- function (data, ..., fill = list(), explicit = TRUE)
+complete.quosure <- function (data, ..., fill = list(), explicit = TRUE) 
 {
     mc <- match.call(expand.dots = FALSE)
     mc[[1]] <- quote(complete)
@@ -959,16 +939,16 @@ complete.alligator <- function (data, ..., fill = list(), explicit = TRUE)
     }
     if ("..." %in% names(mc)) {
         pos <- match("...", names(mc))
-        mc <- as.call(append(as.list(mc), rlang::enquos(...),
+        mc <- as.call(append(as.list(mc), rlang::enquos(...), 
             after = pos))
         mc$... <- NULL
     }
-    structure(mc, class = "alligator")
+    rlang::new_quosure(mc, parent.frame())
 }
 
 
 #' @export
-expand.alligator <- function (data, ..., .name_repair = "check_unique")
+expand.quosure <- function (data, ..., .name_repair = "check_unique") 
 {
     mc <- match.call(expand.dots = FALSE)
     mc[[1]] <- quote(expand)
@@ -978,16 +958,16 @@ expand.alligator <- function (data, ..., .name_repair = "check_unique")
     }
     if ("..." %in% names(mc)) {
         pos <- match("...", names(mc))
-        mc <- as.call(append(as.list(mc), rlang::enquos(...),
+        mc <- as.call(append(as.list(mc), rlang::enquos(...), 
             after = pos))
         mc$... <- NULL
     }
-    structure(mc, class = "alligator")
+    rlang::new_quosure(mc, parent.frame())
 }
 
 
 #' @export
-fill.alligator <- function (data, ..., .direction = c("down", "up", "downup", "updown"))
+fill.quosure <- function (data, ..., .direction = c("down", "up", "downup", "updown")) 
 {
     mc <- match.call(expand.dots = FALSE)
     mc[[1]] <- quote(fill)
@@ -997,20 +977,20 @@ fill.alligator <- function (data, ..., .direction = c("down", "up", "downup", "u
     }
     if ("..." %in% names(mc)) {
         pos <- match("...", names(mc))
-        mc <- as.call(append(as.list(mc), rlang::enquos(...),
+        mc <- as.call(append(as.list(mc), rlang::enquos(...), 
             after = pos))
         mc$... <- NULL
     }
-    structure(mc, class = "alligator")
+    rlang::new_quosure(mc, parent.frame())
 }
 
 
 #' @export
-pivot_longer.alligator <- function (data, cols, ..., cols_vary = "fastest", names_to = "name",
-    names_prefix = NULL, names_sep = NULL, names_pattern = NULL,
-    names_ptypes = NULL, names_transform = NULL, names_repair = "check_unique",
-    values_to = "value", values_drop_na = FALSE, values_ptypes = NULL,
-    values_transform = NULL)
+pivot_longer.quosure <- function (data, cols, ..., cols_vary = "fastest", names_to = "name", 
+    names_prefix = NULL, names_sep = NULL, names_pattern = NULL, 
+    names_ptypes = NULL, names_transform = NULL, names_repair = "check_unique", 
+    values_to = "value", values_drop_na = FALSE, values_ptypes = NULL, 
+    values_transform = NULL) 
 {
     mc <- match.call(expand.dots = FALSE)
     mc[[1]] <- quote(pivot_longer)
@@ -1020,20 +1000,20 @@ pivot_longer.alligator <- function (data, cols, ..., cols_vary = "fastest", name
     }
     if ("..." %in% names(mc)) {
         pos <- match("...", names(mc))
-        mc <- as.call(append(as.list(mc), rlang::enquos(...),
+        mc <- as.call(append(as.list(mc), rlang::enquos(...), 
             after = pos))
         mc$... <- NULL
     }
-    structure(mc, class = "alligator")
+    rlang::new_quosure(mc, parent.frame())
 }
 
 
 #' @export
-pivot_wider.alligator <- function (data, ..., id_cols = NULL, id_expand = FALSE, names_from = name,
-    names_prefix = "", names_sep = "_", names_glue = NULL, names_sort = FALSE,
-    names_vary = "fastest", names_expand = FALSE, names_repair = "check_unique",
-    values_from = value, values_fill = NULL, values_fn = NULL,
-    unused_fn = NULL)
+pivot_wider.quosure <- function (data, ..., id_cols = NULL, id_expand = FALSE, names_from = name, 
+    names_prefix = "", names_sep = "_", names_glue = NULL, names_sort = FALSE, 
+    names_vary = "fastest", names_expand = FALSE, names_repair = "check_unique", 
+    values_from = value, values_fill = NULL, values_fn = NULL, 
+    unused_fn = NULL) 
 {
     mc <- match.call(expand.dots = FALSE)
     mc[[1]] <- quote(pivot_wider)
@@ -1043,16 +1023,16 @@ pivot_wider.alligator <- function (data, ..., id_cols = NULL, id_expand = FALSE,
     }
     if ("..." %in% names(mc)) {
         pos <- match("...", names(mc))
-        mc <- as.call(append(as.list(mc), rlang::enquos(...),
+        mc <- as.call(append(as.list(mc), rlang::enquos(...), 
             after = pos))
         mc$... <- NULL
     }
-    structure(mc, class = "alligator")
+    rlang::new_quosure(mc, parent.frame())
 }
 
 
 #' @export
-replace_na.alligator <- function (data, replace, ...)
+replace_na.quosure <- function (data, replace, ...) 
 {
     mc <- match.call(expand.dots = FALSE)
     mc[[1]] <- quote(replace_na)
@@ -1062,11 +1042,49 @@ replace_na.alligator <- function (data, replace, ...)
     }
     if ("..." %in% names(mc)) {
         pos <- match("...", names(mc))
-        mc <- as.call(append(as.list(mc), rlang::enquos(...),
+        mc <- as.call(append(as.list(mc), rlang::enquos(...), 
             after = pos))
         mc$... <- NULL
     }
-    structure(mc, class = "alligator")
+    rlang::new_quosure(mc, parent.frame())
+}
+
+
+#' @export
+head.quosure <- function (x, ...) 
+{
+    mc <- match.call(expand.dots = FALSE)
+    mc[[1]] <- quote(head)
+    mc[[2]] <- x
+    for (arg in setdiff(names(mc[-(1:2)]), "...")) {
+        mc[[arg]] <- do.call(rlang::enquo, list(rlang::sym(arg)))
+    }
+    if ("..." %in% names(mc)) {
+        pos <- match("...", names(mc))
+        mc <- as.call(append(as.list(mc), rlang::enquos(...), 
+            after = pos))
+        mc$... <- NULL
+    }
+    rlang::new_quosure(mc, parent.frame())
+}
+
+
+#' @export
+tail.quosure <- function (x, ...) 
+{
+    mc <- match.call(expand.dots = FALSE)
+    mc[[1]] <- quote(tail)
+    mc[[2]] <- x
+    for (arg in setdiff(names(mc[-(1:2)]), "...")) {
+        mc[[arg]] <- do.call(rlang::enquo, list(rlang::sym(arg)))
+    }
+    if ("..." %in% names(mc)) {
+        pos <- match("...", names(mc))
+        mc <- as.call(append(as.list(mc), rlang::enquos(...), 
+            after = pos))
+        mc$... <- NULL
+    }
+    rlang::new_quosure(mc, parent.frame())
 }
 
 

@@ -14,34 +14,67 @@ knitr::opts_chunk$set(
 options(tidyverse.quiet = TRUE)
 ```
 
-# alligator
+# qplyr
 
-Experimental!
+`r lifecycle::badge("experimental")`
 
-Delayed evaluation with tidyverse verbs, a bit like {dbplyr} but for local tables.
+Delayed evaluation with tidyverse verbs, mimicking {dbplyr}'s API.
+
+The benefits are :
+
+* We can keep expensive calculations for later, calling `collect()` when needed
+* The object contains its execution plan that we can see more clearly with `show_query()`
+* We can even save a non computed object as a RDS and load it to compute it in a new session
+
+It contains no exported function, it just registers methods for the "quosure" class.
 
 ## Installation
 
 Install with:
 
 ``` r
-remotes::install_github("moodymudskipper/alligator")
+remotes::install_github("moodymudskipper/qplyr")
 ```
 
 ## Example
 
+We start from a quosure on a local or lazy data frame and transform it with tidyverse functions as we would usually do
+
 ```{r example}
 library(tidyverse)
-library(alligator)
+library(qplyr)
 
-al <-
-  alligator(cars) |>
-  mutate(a = speed * dist, b = speed /dist) |>
-  filter(speed == 17)
+f1 <- function(x, ...) {
+  mutate(x, a = speed * dist, ...)
+}
 
-# args are stored as quosures and we display their env in comments
-al
+f2 <- function(x, max_speed, other_cond) {
+  min_speed <- 16
+  filter(x, speed >= min_speed, speed <= {{ max_speed }}, {{ other_cond }})
+}
 
-# collect to eval
-collect(al)
+q1 <- quo(cars) |> # note: we could quo a lazy table too
+  f1(b = speed /dist) |>
+  f2(17, dist == 32)
+```
+
+q1 is a regular quosure and prints like 1
+
+```{r}
+q1
+```
+
+The show_query() method prints friendlier and shows environments :
+
+* next to generics: the env where they were called
+* next to args (squashed quosures), the quosure's env label.
+
+```{r}
+show_query(q1)
+```
+
+The collect method is really just `rlang::eval_tidy()`
+
+```{r}
+collect(q1)
 ```
