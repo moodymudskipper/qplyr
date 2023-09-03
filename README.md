@@ -3,6 +3,8 @@
 
 # qplyr
 
+Experimental!
+
 Delayed evaluation with tidyverse verbs, mimicking {dbplyr}’s API.
 
 The benefits are :
@@ -48,14 +50,14 @@ q1 <- quo(cars) |> # note: we could quo a lazy table too
   f2(17, dist == 32)
 ```
 
-q1 is a regular quosure and prints like 1
+q1 is a regular quosure and prints like one:
 
 ``` r
 q1
 #> <quosure>
 #> expr: ^filter(.data = ^mutate(.data = ^cars, a = ^speed * dist, b = ^speed /
 #>           dist), ^speed >= min_speed, ^speed <= (^17), ^dist == 32)
-#> env:  0x10d3ba2b0
+#> env:  0x112a38a90
 ```
 
 The show_query() method prints friendlier and shows environments :
@@ -66,13 +68,13 @@ The show_query() method prints friendlier and shows environments :
 ``` r
 show_query(q1)
 #> cars |> # global
-#>   mutate( # 0x10d3c0240
-#>     a = speed * dist, # 0x10d3c0240
+#>   mutate( # 0x112a3f900
+#>     a = speed * dist, # 0x112a3f900
 #>     b = speed / dist # global
 #>   ) |>
-#>   filter( # 0x10d3ba2b0
-#>     speed >= min_speed, # 0x10d3ba2b0
-#>     speed <= 17, # 0x10d3ba2b0
+#>   filter( # 0x112a38a90
+#>     speed >= min_speed, # 0x112a38a90
+#>     speed <= 17, # 0x112a38a90
 #>     dist == 32 # global
 #>   )
 ```

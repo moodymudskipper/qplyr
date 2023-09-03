@@ -16,6 +16,7 @@ options(tidyverse.quiet = TRUE)
 
 # qplyr
 
+Experimental!
 `r lifecycle::badge("experimental")`
 
 Delayed evaluation with tidyverse verbs, mimicking {dbplyr}'s API.
@@ -58,7 +59,7 @@ q1 <- quo(cars) |> # note: we could quo a lazy table too
   f2(17, dist == 32)
 ```
 
-q1 is a regular quosure and prints like 1
+q1 is a regular quosure and prints like one:
 
 ```{r}
 q1
