@@ -1,5 +1,5 @@
 Package: qplyr
-Title: Delayed evaluation with tidyverse verbs
+Title: DDelayed Evaluation With tidyverse Verbs
 Version: 0.0.0.9000
 Authors@R: 
     person("Antoine", "Fabri", , "antoine.fabri@gmail.com", role = c("aut", "cre"))
